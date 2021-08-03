@@ -12,4 +12,4 @@
 set -eo pipefail
 
 echo "Verify code metrics..."
-sonar-scanner -Dsonar.host.url=https://sonar.dev.mbanq.cloud -Dsonar.login=688680b3376217a389039b5c68be0e8ab1ac9d9e
+sonar-scanner -Dsonar.host.url=https://sonar.dev.mbanq.cloud -Dsonar.login="${SONAR_TOKEN}"
