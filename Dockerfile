@@ -7,7 +7,7 @@ COPY scripts/*    /usr/bin/
 RUN apk update -q && apk upgrade -q; \
     apk add --update-cache -q cargo nodejs npm git jq py-pip bash openjdk11 unzip curl; \
     gem install cfn-nag --silent; \
-    cargo install cfn-guard; \
+    cargo install cfn-guard --version 1.0.0; \
     pip install cfn-lint; \
     rm -rf /var/cache/apk/* /root/.cargo/registry/*; \
     curl -s https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.5.0.2216.zip \
@@ -18,3 +18,12 @@ RUN apk update -q && apk upgrade -q; \
     chmod +x /usr/bin/metric.sh
 
 ENV PATH "/root/.cargo/bin:${PATH}"
+
+
+apk add --update-cache -q cargo
+
+
+cargo install cfn-guard --version 1.0.0
+
+
+PATH='/root/.cargo/bin:${PATH}'
