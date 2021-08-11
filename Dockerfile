@@ -18,12 +18,3 @@ RUN apk update -q && apk upgrade -q; \
     chmod +x /usr/bin/metric.sh
 
 ENV PATH "/root/.cargo/bin:${PATH}"
-
-
-apk add --update-cache -q cargo
-
-
-cargo install cfn-guard --version 1.0.0
-
-
-PATH='/root/.cargo/bin:${PATH}'
