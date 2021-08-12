@@ -10,6 +10,7 @@
 #
 #    bash scripts/pipeline/metrics.sh
 set -eo pipefail
+echo SONAR_TOKEN is "${SONAR_TOKEN}"
 
 echo "Verify code metrics..."
 sonar-scanner -Dsonar.host.url=https://sonar.dev.mbanq.cloud -Dsonar.login="${SONAR_TOKEN}"
