@@ -1,12 +1,11 @@
 #!/bin/bash
-#shellcheck disable=SC2012
 echo "Cfn linter checks..."
 ​
 path=$1
 isarray=$2
 ​
 if [[ $isarray == 1 ]]; then 
-    cfn_list=$(ls "$path")
+    cfn_list=$(ls $path)
 ​
     for cfn_report_path in $cfn_list; do
         echo "cfn path is ${cfn_report_path}"
@@ -21,7 +20,7 @@ if [[ $isarray == 1 ]]; then
         fi
     done
 else
-    cfn-lint "$path" --ignore-checks W >reports/cfn_lint.out.json && echo OK || echo FAILED
+    cfn-lint $path --ignore-checks W >reports/cfn_lint.out.json && echo OK || echo FAILED
     cfn_lint_output=$(cat reports/cfn_lint.out.json)
 ​
     if [ "$cfn_lint_output" != "" ]; then
